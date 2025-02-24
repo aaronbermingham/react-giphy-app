@@ -2,6 +2,15 @@ import { useFetch } from "../hooks/useFetch";
 import { getSearchGif } from "../api/getSearchGif";
 import { useCallback } from "react";
 
+const baseStyle = {
+	display: "flex",
+	flexDirection: "column",
+	gap: "10px",
+	padding: "10px",
+	alignItems: "center",
+	justifyContent: "center",
+};
+
 const ulStyle = {
 	display: "flex",
 	flexDirection: "row",
@@ -24,7 +33,7 @@ export function GifSearchResult({ query }) {
 	}
 
 	return (
-		<div>
+		<div style={baseStyle}>
 			<h2>Search results for "{query}"</h2>
 			<ul style={ulStyle}>
                 {data.data.map((gif) => (
