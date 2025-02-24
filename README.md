@@ -48,5 +48,6 @@ A React application that fetches and displays GIFs using the Giphy API. Users ca
 
 ## 🔧 Improvements
 - Create a list component that can be used in both `TrendingList` & `GifSearchResult`
-- Save GIFs between renders (possible approach use `useRef` to persist the state)
+- Save GIFs between renders (possible approach: use `useRef` to persist the state)
 - An actual skeleton/placeholder for loading rather than just loading text
+- Button animations
