@@ -1,6 +1,7 @@
 import { useFetch } from "../hooks/useFetch";
 import { getSearchGif } from "../api/getSearchGif";
 import { useCallback } from "react";
+import { Gif } from "./Gif";
 
 const LIMIT = 5;
 
@@ -40,12 +41,7 @@ export function GifSearchResult({ query }) {
 			<ul style={ulStyle}>
 				{data.data.slice(0, visible).map((gif) => (
 					<li key={gif.id}>
-						 <img
-                            src={gif.images.original.url}
-                            alt={gif.title}
-                            width={"200px"}
-                            height={"200px"}
-                        />
+						 <Gif gif={gif} />
 					</li>
 				))}
 			</ul>
