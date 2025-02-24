@@ -39,7 +39,7 @@ export function GifSearchResult({ query }) {
 		<div style={baseStyle}>
 			<h2>Search results for "{query}"</h2>
 			<ul style={ulStyle}>
-				{data.data.slice(0, visible).map((gif) => (
+				{data?.data?.slice(0, visible).map((gif) => (
 					<li key={gif.id}>
 						 <Gif gif={gif} />
 					</li>
