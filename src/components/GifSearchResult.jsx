@@ -2,6 +2,8 @@ import { useFetch } from "../hooks/useFetch";
 import { getSearchGif } from "../api/getSearchGif";
 import { useCallback } from "react";
 
+const LIMIT = 5;
+
 const baseStyle = {
 	display: "flex",
 	flexDirection: "column",
@@ -23,7 +25,7 @@ const ulStyle = {
 
 export function GifSearchResult({ query }) {
 	const fetchGifs = useCallback(() => getSearchGif(query), [query]);
-	const { data, isLoading, error } = useFetch(fetchGifs);
+	const { data, isLoading, error, visible, setVisible } = useFetch(fetchGifs);
 	if (isLoading) {
 		return <>Loading</>;
 	}
@@ -36,17 +38,20 @@ export function GifSearchResult({ query }) {
 		<div style={baseStyle}>
 			<h2>Search results for "{query}"</h2>
 			<ul style={ulStyle}>
-                {data.data.map((gif) => (
-                    <li>
-                        <img
+				{data.data.slice(0, visible).map((gif) => (
+					<li>
+						 <img
                             src={gif.images.original.url}
                             alt={gif.title}
                             width={"200px"}
                             height={"200px"}
                         />
-                    </li>
-                ))}
-            </ul>
+					</li>
+				))}
+			</ul>
+            <button type="button" onClick={() => setVisible(visible + LIMIT)}>
+				Load more
+			</button>
 		</div>
 	);
 }

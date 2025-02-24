@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 
+const LIMIT = 5;
+
 export const useFetch = (apiFunc) => {
 	const [data, setData] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState(null);
+	const [visible, setVisible] = useState(LIMIT);
 
 	useEffect(() => {
 		let isMounted = true;
@@ -27,5 +30,5 @@ export const useFetch = (apiFunc) => {
 		};
 	}, [apiFunc]);
 
-	return { data, isLoading, error};
+	return { data, isLoading, error, visible, setVisible };
 };
