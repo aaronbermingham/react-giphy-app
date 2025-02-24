@@ -2,6 +2,16 @@ import { useFetch } from "../hooks/useFetch";
 import { getSearchGif } from "../api/getSearchGif";
 import { useCallback } from "react";
 
+const ulStyle = {
+	display: "flex",
+	flexDirection: "row",
+	flexWrap: "wrap",
+	listStyle: "none",
+	alignItems: "center",
+	justifyContent: "center",
+	gap: "10px",
+};
+
 export function GifSearchResult({ query }) {
 	const fetchGifs = useCallback(() => getSearchGif(query), [query]);
 	const { data, isLoading, error } = useFetch(fetchGifs);

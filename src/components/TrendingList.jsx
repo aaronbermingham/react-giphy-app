@@ -2,6 +2,15 @@ import { useCallback } from "react";
 import { getTrendingGifs } from "../api/getTrendingGifs";
 import { useFetch } from "../hooks/useFetch";
 
+const ulStyle = {
+	display: "flex",
+	flexDirection: "row",
+	flexWrap: "wrap",
+	listStyle: "none",
+	alignItems: "center",
+	justifyContent: "center",
+	gap: "10px",
+};
 
 export function TrendingList() {
     const fetchTrendingGifs = useCallback(getTrendingGifs, []);
@@ -18,7 +27,7 @@ export function TrendingList() {
     return(
         <div>
             <h2>Trending GIFs</h2>
-            <ul>
+            <ul style={ulStyle}>
                 {data.data.map((gif) => (
                     <li>
                         <img
