@@ -1,9 +1,11 @@
 import { TrendingList } from './components/TrendingList'
+import { GifSearch } from './components/GifSearch'
 
 function App() {
   return (
     <div>
-      <TrendingList />
+      <GifSearch />
+			<TrendingList />
     </div>
   )
 }
