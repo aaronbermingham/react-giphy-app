@@ -38,7 +38,7 @@ export function TrendingList() {
             <h2>Trending GIFs</h2>
             <ul style={ulStyle}>
                 {data.data.map((gif) => (
-                    <li>
+                    <li key={gif.id}>
                         <img
                             src={gif.images.original.url}
                             alt={gif.title}
