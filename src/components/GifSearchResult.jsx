@@ -26,7 +26,7 @@ export function GifSearchResult({ query }) {
 	return (
 		<div>
 			<h2>Search results for "{query}"</h2>
-			<ul>
+			<ul style={ulStyle}>
                 {data.data.map((gif) => (
                     <li>
                         <img
